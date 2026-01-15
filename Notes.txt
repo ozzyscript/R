@@ -1,0 +1,195 @@
+
+
+ ======= Thinking & Todo: =======
+1 Define all gestures [Done] 20 Gestures in total.
+
+2 Build a confirm mechanism to detect & filter the gesture correctly. [Done]
+
+3 Build a func to optionally show points. [Done]
+
+4 build a mechanism to stop continuous action execution. [Done]
+
+5 Map gestures to actions [Done]
+
+6 Fine tune the model to add more gestures [Done]
+
+7 Document training file [Done]
+
+8 Document main file [Done]
+
+9 Write readme file []
+
+10 Organize Notes file [Done]
+
+
+
+
+
+ ======= Overall description =======
+
+A simple program (for learning) to detect a gesture, 
+and perform an action upon it. (execute system command)
+
+That was achieved by using OpenCV and MediaPipe.
+
+MediaPipe provides (7) default gestures which are:
+
+Closed_Fist, Open_Palm, Pointing_Up 
+Thumb_Down Thumb_Up Victory ILoveYou.
+
+I found that a bit limited, so I fine tuned the 
+model to add more gestures.
+
+Now number of gestures is 20 and they are: 
+
+Closed_Fist, call, no_gesture, dislike, fist, four
+like, mute, ok, one, palm, peace, peace_inverted,
+rock, stop, stop_inverted, three, three2
+two_up, two_up_inverted.
+
+
+
+======== KEEP IN MIND ======
+
+1 the resources that talk, guide or explain MediaPipe, uses the older version
+which will not work out of the box if you install using pip install.
+
+2 the code in this project uses both, the main.py uses the new version, while the train.py
+uses the older version.
+
+3 make sure to use separated virtual environment, one for the project second for training. 
+this will help to avoid any compatibility issues.
+
+- for main install mediapipe and opencv
+- for training install mediapipe_model_maker 
+
+4 you can use landmarks coordinates to create advanced gestures like, scrolling, or zooming.
+
+
+======== Starting Point =======
+
+Use this link below to get the data from Kaggle (Thanks to them).
+https://www.kaggle.com/datasets/innominate817/hagrid-sample-30k-384p/data
+
+
+NOTES: 
+
+DIR = FOLDER :)
+
+1 you only need the dir that contain sub folders with images
+2 it's recommended to rename the sub dirs so model can use them as labels (gesture name). 
+example: dir name = fist. dir name = like
+3 the dataset does not include the none dir which is so important for model to not hallucinate.
+
+Use the "download.py" file as shown below to get the "none" dir
+=> python3 download.py -d -t no_gesture 
+
+NOTES:
+1 rename the dir to "none" then add it with the dataset dirs
+2 check for any hidden dirs or files and delete them. It include (my case)
+3 the "download.py" I get it from the link below (Thanks to them)
+https://github.com/hukenovs/hagrid/blob/master/download.py
+
+
+
+======= FINE TUNE THE MODEL (Training). =======
+
+Based on the Internet Search
+To fine-tune a MediaPipe model using Model Maker, you should aim for approximately 100 data
+samples per class you want the model to recognize.
+
+How to train Docs:
+https://ai.google.dev/edge/mediapipe/solutions/customization/gesture_recognizer
+
+
+NOTES:
+
+1 the "training.py" file is ready for training, so you don't need to do a lot. BUT:
+    1 the file is only for one hand
+    2 you need to get the dataset, explained how above.
+    3 I did that locally on my device, so the code was written for that.
+
+2 if your pc/laptop is not capable enough use google Colab.
+
+3 dir names will be used as labels, so name them carefully. 
+    label is the "gesture name" 
+    example: dir name = fist means gesture name is fist
+
+4 The python version used for training is 3.10.13
+if your system has a newer version, or even an older. It's recommended 
+to use pyenv and install this version, to avoid compatibility issues.
+
+5 the only lib you need to install is "mediapipe_model_maker"
+it will download, all necessary libs/framworks (size is decent) 
+version used for this project is 0.2.1.4.  
+
+6 when you launch training on your device do not panic if you see a bench of warnings 
+tanserflow will use CPU if an issue related GPU
+
+
+
+How to install a specific version of python (arch my case):
+by doing the steps below you can have multiple versions of python 
+
+1 Install dependencies for building Python
+sudo pacman -S --needed base-devel libffi zlib xz bzip2 sqlite tk
+
+2 Install pyenv
+git clone https://github.com/pyenv/pyenv.git ~/.pyenv
+
+3 Add pyenv to shell
+echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc
+echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc
+echo 'eval "$(pyenv init --path)"' >> ~/.bashrc
+source ~/.bashrc
+
+3 Install Python 3.10.13 (latest 3.10)
+pyenv install 3.10.13
+pyenv global 3.10.13  # or local 3.10.13 per project
+
+I recommended to install locally (per project)
+
+
+========  links ======= 
+Open Cv official docs
+https://docs.opencv.org/4.12.0/dd/d43/tutorial_py_video_display.html
+
+MediaPipe
+https://ai.google.dev/edge/mediapipe/solutions/vision/gesture_recognizer/python#video
+https://ai.google.dev/edge/mediapipe/solutions/vision/hand_landmarker
+https://ai.google.dev/edge/mediapipe/solutions/customization/gesture_recognizer
+
+
+====== Challenges =======
+To be honest he whole project was a challenge, because this the first time,
+I deal with, OpenCv and MediaPipe. This is my first time I fine-tune.
+The good thing, I have learned a lot from this project more than any else project.
+
+Note: 
+1 Ai (ChatGPT and Perplexity ) helped me a lot, especially ChatGPT
+2 I do not copy paste code, I try to understand every line, then write it.
+
+
+
+======== While I was building =======
+Problems:
+Gesture did not pass 85% test:
+four
+like (needs a specific way)
+palm
+stop_inverted
+appeard suddenly [ three2, stop,two_up,
+Note: pass  and three2 passed successfully
+
+
+
+Search Reslut:
+To fine-tune a MediaPipe model using Model Maker, you should aim for approximately 100 data samples per class you want the model to recognize.
+ This approach leverages transfer learning, which allows for effective retraining with significantly less data compared to training a new model from scratch.
+
+Todo:
+train the model to work with 2 hands
+try to make motions gesture (scroll as start)
+Org notes.txt file
+
+
