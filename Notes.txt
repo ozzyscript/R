@@ -1,7 +1,7 @@
 
 
  ======= Thinking & Todo: =======
-1 Define all gestures [Done] 20 Gestures in total.
+1 Define all gestures [Done] 18 Gestures in total.
 
 2 Build a confirm mechanism to detect & filter the gesture correctly. [Done]
 
@@ -17,37 +17,31 @@
 
 8 Document main file [Done]
 
-9 Write readme file []
+9 Write readme file [Done]
 
 10 Organize Notes file [Done]
 
+11 Add second hand [Done]
+    Note: adds allowed to use the left hand as modifier,
+    so you can make more than 300 combo gestures.
+
+12 make list of actions/things to happen when a certain gesture detected [Done]
+
+13 fix mouse movement and clicks [Done] 
+
+14 Check and clean all the file [Done]
+
+15 divide the main.py file to modules [Done]
+
+16 create "all_in_one.py" file 
+
+17 implement pause mechanism [Done]
 
 
 
 
- ======= Overall description =======
 
-A simple program (for learning) to detect a gesture, 
-and perform an action upon it. (execute system command)
-
-That was achieved by using OpenCV and MediaPipe.
-
-MediaPipe provides (7) default gestures which are:
-
-Closed_Fist, Open_Palm, Pointing_Up 
-Thumb_Down Thumb_Up Victory ILoveYou.
-
-I found that a bit limited, so I fine tuned the 
-model to add more gestures.
-
-Now number of gestures is 20 and they are: 
-
-Closed_Fist, call, no_gesture, dislike, fist, four
-like, mute, ok, one, palm, peace, peace_inverted,
-rock, stop, stop_inverted, three, three2
-two_up, two_up_inverted.
-
-
+This is version one(Old)
 
 ======== KEEP IN MIND ======
 
@@ -78,7 +72,7 @@ DIR = FOLDER :)
 
 1 you only need the dir that contain sub folders with images
 2 it's recommended to rename the sub dirs so model can use them as labels (gesture name). 
-example: dir name = fist. dir name = like
+example: dir name = ok. dir name = like
 3 the dataset does not include the none dir which is so important for model to not hallucinate.
 
 Use the "download.py" file as shown below to get the "none" dir
@@ -113,7 +107,7 @@ NOTES:
 
 3 dir names will be used as labels, so name them carefully. 
     label is the "gesture name" 
-    example: dir name = fist means gesture name is fist
+    example: dir name = ok means gesture name is fist
 
 4 The python version used for training is 3.10.13
 if your system has a newer version, or even an older. It's recommended 
@@ -145,10 +139,10 @@ source ~/.bashrc
 
 3 Install Python 3.10.13 (latest 3.10)
 pyenv install 3.10.13
-pyenv global 3.10.13  # or local 3.10.13 per project
+pyenv global 3.10.13  # or local 3.10.13 per project 
 
 I recommended to install locally (per project)
-
+run the command "pyenv 3.10.13" inside the prj dir
 
 ========  links ======= 
 Open Cv official docs
@@ -191,5 +185,45 @@ Todo:
 train the model to work with 2 hands
 try to make motions gesture (scroll as start)
 Org notes.txt file
+
+
+
+
+[Helper]
+draw_landmarks 
+filter_gesture
+extract_hand_gestures
+toggle_capslock
+ press_func_key
+type_char
+ hypr
+
+
+=================
+[Commands]
+GESTURE_COMMANDS
+COMBO_COMMANDS
+
+[Mouse]
+left_click
+right_click
+middle_click
+scroll_up
+scroll_down
+===============
+
+
+
+keyboard [Done]
+mouse [Done]
+helper [Done]
+consts [Done]
+system commands
+
+
+gestures
+mouse => ok
+keyboard letters => stop + stop inverted
+
 
 

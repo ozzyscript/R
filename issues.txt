@@ -1,0 +1,6 @@
+
+
+1 press and hold mouse left button not working
+2 double tap left mouse button [Solved]
+3 cursor does not reset speed if it goes same direction 
+

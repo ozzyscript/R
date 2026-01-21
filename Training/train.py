@@ -2,8 +2,6 @@
 Here is where you can fine-tune the model.
 All you need to do is provide the path of your dataset.
 
-NOTE: This model is trained only for one hand.
-
 Things you need to know IMPORTANT:
 1 the dataset dir must include "none" dir and this dir must
 include samples that are not gestures, so your model does not hallucinate.
