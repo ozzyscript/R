@@ -129,7 +129,7 @@ make sure to use the version that is compatable with your py version.
 # Training 
 
 - create a separate virtual env.
-- install `mediapipe-model-maker` via. This version uses the new APIs
+- install `mediapipe-model-maker` via. This version uses the old APIs
 ```bash
 pip install mediapipe-model-maker==0.2.1.4
 ```
