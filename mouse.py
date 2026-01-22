@@ -23,10 +23,10 @@ VEL_Y = 0.0
 FRICTION = 0.82 # velocity reduced by 18% each frame
 
 # how much force the gesture applies to push the cursor each frame. 
-ACCEL_FORCE = 18.4      
+ACCEL_FORCE = 20.4      
 
 # top speed of the cursor 
-MAX_VEL = 45.0
+MAX_VEL = 120.0
 
 # store the current position of the cursor on the screen.
 # default position middle of the screen.
@@ -34,7 +34,7 @@ CURSOR_X = 960
 CURSOR_Y = 540
 
 # Base movement step for gestures (before acceleration)
-MOUSE_SPEED = 2       
+MOUSE_SPEED = 6     
 
 
 # Gesture to direction mapping
@@ -76,9 +76,8 @@ def mouse_move_accelerated(gesture):
     ndx = dx / length
     ndy = dy / length
 
-    # --- Acceleration ramp (IMPORTANT PART) ---
     # Starts small, ramps smoothly, caps naturally
-    ramp = min(1.0, gesture_hold_frames / 6.0)
+    ramp = min(1.0, gesture_hold_frames / 8.0)
     ramp = ramp * ramp   # ease-in curve
 
     force = ACCEL_FORCE * ramp

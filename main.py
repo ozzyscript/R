@@ -64,7 +64,7 @@ options = GestureRecognizerOptions(
 # confirm that we receive input from Cam device
 # Note on Linux I have experienced Ext-Cam name
 # changes video0 and video2
-cap = cv.VideoCapture("/dev/video2") # external cam on Linux
+cap = cv.VideoCapture("/dev/video0") # external cam on Linux
 if not cap.isOpened():
     print("Can't open camera.")
     exit() 
@@ -154,8 +154,7 @@ def main(show_skeleton=False):
 
             if show_skeleton:
                 draw_landmarks(result,frame)
-
-            cv.imshow('frame', frame)
+            # cv.imshow('frame', frame)
             
             if cv.waitKey(1) == ord('q'):
                 break

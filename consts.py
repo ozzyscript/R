@@ -120,7 +120,7 @@ COMBO_COMMANDS = {
                 # """ All gestures """
 #     "palm[x]", "ok[x]", "fist[x]", "one", "two_up", "three", "three2", 
 #     "four", "like[x]", "mute", "rock", "call", "dislike", "peace[x]", 
-#     "peace_inverted[x]", "stop", "stop_inverted[x]", "two_up_inverted"
+#     "inverted[x]", "stop", "stop_inverted[x]", "two_up_inverted"
 
 
     
@@ -158,7 +158,7 @@ COMBO_COMMANDS = {
     ("stop_inverted", "three"): lambda: type_char("x"),
     ("stop_inverted", "three2"):lambda: type_char("y"),
     ("stop_inverted", "rock"):  lambda: type_char("z"),
-    ("stop_inverted", "call"):  lambda: type_char("space"),
+    ("stop_inverted", "call"):  lambda: type_char(" "),
     ("stop_inverted", "mute"):  lambda: type_char("."),
     ("stop_inverted", "dislike"):lambda: type_char("?"),
 
@@ -185,23 +185,23 @@ COMBO_COMMANDS = {
 
     # PEACE_INVERTED group (special characters for programming)
 
-    ("peace_inverted", "palm"):           lambda: type_char("("),
-    ("peace_inverted", "fist"):           lambda: type_char(")"),
-    ("peace_inverted", "ok"):             lambda: type_char("{"),
-    ("peace_inverted", "one"):            lambda: type_char("}"),
-    ("peace_inverted", "two_up"):         lambda: type_char("["),
-    ("peace_inverted", "peace"):          lambda: type_char("]"),
-    ("peace_inverted", "like"):           lambda: type_char(";"),
-    ("peace_inverted", "four"):           lambda: type_char(":"),
-    ("peace_inverted", "three"):          lambda: type_char(","),
-    ("peace_inverted", "three2"):         lambda: type_char("!"),
-    ("peace_inverted", "rock"):           lambda: type_char("+"),
-    ("peace_inverted", "call"):           lambda: type_char("-"),
-    ("peace_inverted", "mute"):           lambda: type_char("*"),
-    ("peace_inverted", "dislike"):        lambda: type_char("/"),
-    ("peace_inverted", "stop"):           lambda: type_char("="),
-    ("peace_inverted", "stop_inverted"):  lambda: type_char("<"),
-    ("peace_inverted", "two_up_inverted"):lambda: type_char(">"),
+    ("inverted", "palm"):           lambda: type_char("("),
+    ("inverted", "fist"):           lambda: type_char(")"),
+    ("inverted", "ok"):             lambda: type_char("{"),
+    ("inverted", "one"):            lambda: type_char("}"),
+    ("inverted", "two_up"):         lambda: type_char("["),
+    ("inverted", "peace"):          lambda: type_char("]"),
+    ("inverted", "like"):           lambda: type_char(";"),
+    ("inverted", "four"):           lambda: type_char(":"),
+    ("inverted", "three"):          lambda: type_char(","),
+    ("inverted", "three2"):         lambda: type_char("!"),
+    ("inverted", "rock"):           lambda: type_char("+"),
+    ("inverted", "call"):           lambda: type_char("-"),
+    ("inverted", "mute"):           lambda: type_char("*"),
+    ("inverted", "dislike"):        lambda: type_char("/"),
+    ("inverted", "stop"):           lambda: type_char("="),
+    ("inverted", "stop_inverted"):  lambda: type_char("<"),
+    ("inverted", "two_up_inverted"):lambda: type_char(">"),
     
 
     # >>>>>>>>>> Function keys 
