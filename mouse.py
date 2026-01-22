@@ -1,41 +1,41 @@
 import subprocess
 
+"""
+The logic behind the cursor movement,
+needs some knowledge and search in physics of motion.
+"""
 
-# ===== TRACK MOUSE POSITION =====
 
-# ===== Accel Ramp State =====
 gesture_hold_frames = 0
 last_gesture = None
 
 
-# LEFT_MOUSE_HELD = False
-# ===== Gesture Idle Reset =====
+SCREEN_WIDTH = 1920
+SCREEN_HEIGHT = 1080
 
-
-
-# ===== Mouse Physics =====
+# velocity (speed and direction) of the cursor 
 VEL_X = 0.0
 VEL_Y = 0.0
 
-FRICTION = 0.82        # lower = more slippery, higher = tighter
-ACCEL_FORCE = 18.4      # how strong gesture pushes the cursor
+
+# how fast the cursor slows down when no force is applied
+# in simple words, this controls how smooth the cursor slows down.
+FRICTION = 0.82 # velocity reduced by 18% each frame
+
+# how much force the gesture applies to push the cursor each frame. 
+ACCEL_FORCE = 18.4      
+
+# top speed of the cursor 
 MAX_VEL = 45.0
 
-
-# Initialize at the start of your program
-CURSOR_X = 960  # Start roughly at center (tune to your screen)
+# store the current position of the cursor on the screen.
+# default position middle of the screen.
+CURSOR_X = 960  
 CURSOR_Y = 540
 
-# Get screen size (hardcode or parse `hyprctl monitors`)
-SCREEN_WIDTH = 1920
-SCREEN_HEIGHT = 1080
-# ===== Global =====
+# Base movement step for gestures (before acceleration)
+MOUSE_SPEED = 2       
 
-# ===== Constants =====
-MOUSE_SPEED = 2       # base speed per frame
-
-
-# ===== Global Acceleration State =====
 
 # Gesture to direction mapping
 MOUSE_MOVES = {
@@ -52,8 +52,7 @@ MOUSE_MOVES = {
 }
 
 
-# ===== Functions =====
-# ===== Accelerated Mouse Move =====
+
 def mouse_move_accelerated(gesture):
 
     global VEL_X, VEL_Y, gesture_hold_frames, last_gesture, last_move_time
@@ -121,6 +120,9 @@ def update_mouse_physics():
         stdout=subprocess.DEVNULL,
         stderr=subprocess.DEVNULL
     )
+
+
+
 
 
 def click_mouse(button: str):
